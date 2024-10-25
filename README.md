@@ -1,42 +1,44 @@
 # assignment1-rule-engine
-This repository contains the implementation of a Rule Engine using Abstract Syntax Trees (AST). The engine allows users to create and evaluate rules based on specified conditions.
-The project supports rules with AND, OR operators, and comparison expressions like >, <, and =.
+The ATS Rule Engine is a Python application designed to evaluate and execute predefined rules on candidate data for automated recruitment processes. It enables organizations to filter and manage candidate applications effectively.
 
-To run the project, clone the repository using git clone <repository-url> and navigate into the project directory using cd rule_engine_with_ast. 
+Installation
+Clone the repository:
 
-Ensure you have Python 3.x installed. 
+git clone <repository-url>
+cd ats_rule_engine
 
-No external dependencies are required. You can run the main code with python main.py and test the functionality using python -m pytest tests/.
+Install the required dependencies:
 
-The code structure includes:
+pip install -r requirements.txt
 
-ast_node.py: Contains the ASTNode class for building the tree structure.
+Set up the environment variables :
 
-main.py: Main logic for parsing rules and evaluating them.
+Create a .env file in the project root for configuration.
 
-tests/test_ast_engine.py: Test cases for parsing and evaluation.
+Run the application:
 
-README.md: Documentation of the project (this file).
+python main.py
 
-An example rule is "salary > 50000 AND experience > 5", and with data like {"salary": 60000, "experience": 6}, the AST looks like:Node(type=operator, value=AND)
-  Node(type=operand, value=salary > 50000)
-  Node(type=operand, value=experience > 5)
-  The evaluation result for this rule and data will be True.
-  
- Non-Functional Considerations  
- 
-1. Security Layer:
-   - Sanitization of input data and rules to prevent injection attacks.  
-   - Type-checking of AST nodes to ensure valid operations only.  
+Design Choices
 
-2. Performance Optimization:
-   - Short-circuiting logic for `AND` and `OR` operators.  
-   - Optimized recursion to minimize function calls.
+The ATS Rule Engine is designed with modularity in mind, allowing easy addition of new rules and data sources. It employs a simple condition-checking mechanism for evaluating candidate data.
 
-3. Scalability:
-   - Modular design allows for easy extensions, such as adding new operators or conditions.
+Dependencies
+List of dependencies required to run the application:
 
+Flask==2.0.1
+SQLAlchemy==1.3.23
+python-dotenv==0.19.1
+
+Non-Functional Requirements
+
+Security: The application incorporates input validation to prevent injection attacks.
+Performance: Efficient data processing methods are employed to handle large datasets.
 
 Authored By,
+Riya
 
-Riya Khilari
+
+
+
+
